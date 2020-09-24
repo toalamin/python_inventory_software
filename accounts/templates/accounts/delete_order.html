@@ -1,0 +1,25 @@
+{% extends "accounts/main.html" %}
+
+{% block title %}
+    Delete Order Info
+{% endblock title %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h5>Delete Orders:</h5>
+		<hr>
+		<div class="card card-body">
+            <p>Are you want to delete this order {{ item }}</p>
+			<form action="{% url 'delete_order' item.id  %}" method="POST">
+                {% csrf_token %}
+               <a class="nav-link" href="{% url 'dashboard.page' %}">Cancel</a>
+                <button class="btn btn-sm btn-success" name="config" type="submit">Confirm</button>
+            </form>
+		</div>
+	</div>
+</div>
+{% endblock content %}
