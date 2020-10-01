@@ -14,8 +14,18 @@
 		<hr>
 		<div class="card card-body">
 			<form action="" method="POST">
-                {% csrf_token %}
-                {{ form }}
+				{% csrf_token %}
+				<ul>
+					{% for singleForm in  formset %}
+					{{formset.management_form }}
+					<li> {{  singleForm }}</li>
+					{% endfor %}
+				</ul>
+				
+				     
+				
+
+              
                 <button class="btn btn-sm btn-success" type="submit">Submit</button>
 
             </form>
